@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
   password: String,
   startingWeight: {type: Number},
   currentWeight: {type: Number},
-  weightChange: {type: Number},
+  // weightChange: {type: Number},
 });
 
 // Password hash middleware.

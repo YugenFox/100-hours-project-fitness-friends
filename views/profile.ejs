@@ -5,11 +5,13 @@
           <div>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
+              <p><strong>Starting weight</strong>: <%= user.startingWeight %></p>
+              <p><strong>Current Weight</strong>: <%= user.currentWeight %></p>
               <p><strong>Total Weight Change</strong>: <%= user.currentWeight - user.startingWeight %></p>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
-            <h2>Add a post</h2>
+            <h2>Add a pose-st 💪</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>

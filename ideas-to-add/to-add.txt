@@ -1,1 +1,7 @@
 Gym Near You tab, that integrates google maps and searches for closest gyms
+
+HEADER
+- add Find a Gym near you tag. ^
+
+POST
+-post weight might not match current weight of user
