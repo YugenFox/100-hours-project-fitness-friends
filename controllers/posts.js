@@ -38,6 +38,9 @@ module.exports = {
         caption: req.body.caption,
         likes: 0,
         user: req.user.id,
+        startingWeight: req.user.startingWeight,
+        currentWeight: req.user.currentWeight,
+        // weightChange: req.user.weightChange
       });
       console.log("Post has been added!");
       res.redirect("/profile");

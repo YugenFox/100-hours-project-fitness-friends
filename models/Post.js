@@ -29,6 +29,14 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  startingWeight: {
+    type: Number,
+    required: true,
+  },
+  currentWeight: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Post", PostSchema);
