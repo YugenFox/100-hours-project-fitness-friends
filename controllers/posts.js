@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
+const User = require("../models/User");//added, not sure if needed since line 8 uses a "req.user.id" somehow //using User in updateCurrentWeight
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -27,6 +28,7 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
+    console.log(req.body) //only shows title and caption
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
@@ -76,4 +78,26 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+  updateCurrentWeight: async(req, res) => {
+    try {
+      //find user and its currentWeight
+      const user = await User.findOne({_id: req.user.id})
+      user.currentWeight = +req.body.currentWeight 
+
+      await user.save()
+      console.log(user.currentWeight)
+
+
+      // await User.findOneAndUpdate(
+      //   { _id: req.user.id },
+      //   {
+      //     $inc: { currentWeight: 1 },
+      //   }
+      // );
+      console.log(`currentWeight updated to ${currentWeight}`);
+      res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      res.redirect("/profile");
+    }
+  }
 };
