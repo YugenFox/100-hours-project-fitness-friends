@@ -1,11 +1,24 @@
-<%- include('partials/header') -%>
-
-<main class="container">
-    <div class="row justify-content-around mt-5">
-        <a href="/login" class="col-3 btn btn-primary"> Login</a>
-        <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
-    </div>
-</main>
+<div class="index">
+    <%- include('partials/header') -%>
     
+    <main class="container">
+        <div class="row justify-content-around mt-5">
+            <a href="/login" class="col-3 btn btn-primary"> Login</a>
+            <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
+        </div>
+    </main>
 
-<%- include('partials/footer') -%>
+    <div class="index--features_list " >
+        <h2>Why Use Fitness Friends?</h2>
+        <ul class="">
+            <li>
+                <span>✅</span><p>Weight Tracking</p>
+            </li><li>
+                <span>✅</span><p>Fitness Accomplishment Tracking</p>
+            </li>
+        </ul>
+    </div>
+    
+    
+    <%- include('partials/footer') -%>
+</div>
