@@ -5,3 +5,6 @@ HEADER
 
 POST
 -post weight might not match current weight of user
+
+CSS
+-where are the classes getting their style from if there is no css file??
