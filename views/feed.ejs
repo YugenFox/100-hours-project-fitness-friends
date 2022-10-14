@@ -2,11 +2,11 @@
   <%- include('partials/header') -%>
     <div class="container">
       <div class="">
-        <ul class="flex-col content-center justify-center">
+        <ul class="flex-col content-center justify-center mx-auto" >
           <% for(var i=0; i<posts.length; i++) {%>
             <div class="py-4">
-              <a href="/post/<%= posts[i]._id%>" class="card-body">
-                <li class="card w-96 bg-base-100 shadow-xl">
+              <a href="/post/<%= posts[i]._id%>" class="card-body ">
+                <li class="card w-96 bg-base-100 shadow-xl mx-auto">
                   <h2 class="card-title"><%=posts[i].title %></h2>
                   <p><%=posts[i].caption %></p>
                   <figure><img src="<%= posts[i].image%>" alt="Shoes" /></figure>
