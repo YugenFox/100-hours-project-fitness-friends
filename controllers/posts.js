@@ -95,7 +95,7 @@ module.exports = {
       //   }
       // );
       console.log(`currentWeight updated to ${currentWeight}`);
-      res.redirect(`/post/${req.params.id}`);
+      res.redirect("/profile")
     } catch (err) {
       res.redirect("/profile");
     }

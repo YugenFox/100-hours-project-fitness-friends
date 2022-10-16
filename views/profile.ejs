@@ -8,36 +8,61 @@
               <p><strong>Starting weight</strong>: <%= user.startingWeight %></p>
               <p><strong>Current Weight</strong>: <%= user.currentWeight %></p>
               <p><strong>Total Weight Change</strong>: <%= user.currentWeight - user.startingWeight %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
           </div>
-          <div class="mt-5">
-            <h2>Add a pose-st 💪</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div>
-          <div class="mt-5">
-            <h2>Update your weight 💪</h2>
-            <form action="/post/updateCurrentWeight?_method=PUT"  method="POST">
-              <div class="mb-3">
-                <label for="currentWeight" class="form-label">Update Current Weight</label>
-                <input type="number" class="form-control" id="currentWeight" value = <%= user.currentWeight %> name="currentWeight">
-                <button type="submit" class="btn btn-primary" value="updateCurrentWeight">Submit</button>
+
+          <!-- new add post form -->
+          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div class="card-body">
+              <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+                <h2>Add a pose-st 💪</h2>
+                <div class="form-control">
+                  <label for="title" class="label">
+                    <span class="label-text">Title</span>
+                  </label>
+                  <input type="text" placeholder="Best title ever" class="input input-bordered" id="title" name="title" />
+                </div>
+                <div class="form-control">
+                  <label for="caption" class="label">
+                    <span class="label-text">Caption</span>
+                  </label>
+                  <textarea type="text" placeholder="Today I.." class="input input-bordered" id="caption" name="caption"></textarea>
+                </div>
+                <div class="form-control">
+                  <label for="imageUpload" class="label">
+                    <span class="label-text">Image</span>
+                  </label>
+                  <input type="file" class="form-control" id="imageUpload" name="file">
+                </div>
+                <!-- sumbit post button -->
+                <div class="form-control mt-6">
+                  <button class="btn btn-primary" type="sumbit">Create Post</button>
+                </div>
+              </form>
             </div>
-            </form>
           </div>
+          <!-- end new post form -->
+
+          <!-- ************************** -->
+          <!-- new update user details -->
+          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div class="card-body">
+              <form action="/post/updateCurrentWeight?_method=PUT"  method="POST">
+                <h2>Update your accomplishments 💪</h2>
+                <div class="form-control">
+                  <label for="title" class="label">
+                    <span class="label-text">Update Current Weight</span>
+                  </label>
+                  <input type="number" placeholder="Input your current weight" value = <%= user.currentWeight %> class="input input-bordered" id="currentWeight" value = <%= user.currentWeight %> name="currentWeight" />
+                </div>
+                <!-- sumbit button -->
+                <div class="form-control mt-6">
+                  <button class="btn btn-primary" type="sumbit" value="updateCurrentWeight">Update Current Weight</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- end new update user details -->
       </div>
       <div class="col-6">
         <ul class="row list-unstyled">
@@ -49,9 +74,9 @@
           </li>
         <% } %>
         </ul>
-        <div class="row justify-content-center mt-5">
+        <!-- <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
+        </div>   -->
       </div>  
     </div>
   </div>
