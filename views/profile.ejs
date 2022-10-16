@@ -1,18 +1,66 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
+<div class="container flex col w-4/5 mx-auto ">
+      <!-- User forms --create post & Update Current info -->
+      <div class="artboard phone-3 w-1/2 ">
+          <!-- <section>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
               <p><strong>Starting weight</strong>: <%= user.startingWeight %></p>
               <p><strong>Current Weight</strong>: <%= user.currentWeight %></p>
               <p><strong>Total Weight Change</strong>: <%= user.currentWeight - user.startingWeight %></p>
               <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
+           <!-- </section>  --> 
+
+          
+          <!-- start tail -->
+           <!-- Statistics Cards -->
+        <div class="w-full grid grid-cols-1 lg:grid-cols-3 p-4 gap-4">
+          <div class="bg-secondary dark:bg-secondary shadow-lg rounded-md flex items-center space-between p-3 border-b-4 border-base-content dark:border-secondary text-white font-medium w-1/2 mx-auto lg:w-full lg:mx-0">
+            <div class="text-center mx-auto">
+              <p class="font-normal text-xs">Starting Weight</p>
+              <p class="text-2xl"><%= user.startingWeight %></p>
+            </div>
           </div>
 
+          <div class="bg-secondary dark:bg-secondary shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-base-content dark:border-secondary text-white font-medium  w-1/2 mx-auto lg:w-full lg:mx-0">
+            <div class="text-center mx-auto">
+              <p class="font-normal text-sm">Total Weight Change</p>
+              <p class="text-2xl"><%= user.currentWeight - user.startingWeight %></p>
+            </div>
+          </div>
+
+          <div class="bg-secondary dark:bg-secondary shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-base-content dark:border-secondary text-white font-medium group w-1/2 mx-auto lg:w-full lg:mx-0">
+            <div class="text-center mx-auto">
+              <p>Current Weight</p>
+              <p class="text-2xl"><%= user.currentWeight %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <!-- email & user name -->
+        <section class="w-1/2 lg:w-full mx-auto lg:px-4 px-2">
+          <div class="bg-secondary dark:bg-secondary shadow-lg rounded-md flex items-center p-3 border-b-4 border-primary dark:border-secondary text-white font-medium group w-full">
+            <div class="text-center mx-auto">
+              <p>User: <%= user.userName %></p>
+            </div>
+          </div>
+          <div class="bg-secondary dark:bg-secondary shadow-lg rounded-md flex items-center p-3 border-b-4 border-primary dark:border-secondary text-white font-medium group w-full mt-4">
+            <div class="text-center mx-auto">
+              <p>Email: <%= user.email %></p>
+            </div>
+          </div>
+        </section>
+        <!-- end user & email -->
+
+        <!-- ./Statistics Cards -->
+          <!-- end tail -->
+
+          <!-- User Info & Stats -->
+   
+
           <!-- new add post form -->
-          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <section class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div class="card-body">
               <form action="/post/createPost" enctype="multipart/form-data" method="POST">
                 <h2>Add a pose-st 💪</h2>
@@ -40,12 +88,12 @@
                 </div>
               </form>
             </div>
-          </div>
+          </section>
           <!-- end new post form -->
 
           <!-- ************************** -->
           <!-- new update user details -->
-          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <section class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div class="card-body">
               <form action="/post/updateCurrentWeight?_method=PUT"  method="POST">
                 <h2>Update your accomplishments 💪</h2>
@@ -61,24 +109,28 @@
                 </div>
               </form>
             </div>
-          </div>
+          </section>
           <!-- end new update user details -->
       </div>
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        <!-- <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>   -->
+
+      <!-- User posts(images) -->
+      <div class="artboard phone-3 w-1/2 overflow-y-auto" >
+        <section class="">
+          <ul class="row list-unstyled">
+          <% for(var i=0; i<posts.length; i++) {%>
+            <li class="col-6 justify-content-between mb-5">
+              <a href="/post/<%= posts[i]._id%>">
+                <img class="img-fluid" src="<%= posts[i].image%>">
+              </a>
+            </li>
+          <% } %>
+          </ul>
+          <!-- <div class="row justify-content-center mt-5">
+            <a class="btn btn-primary" href="/feed">Return to Feed</a>
+          </div>   -->
+        </section>
       </div>  
-    </div>
-  </div>
+      
+  
 </div>
 <%- include('partials/footer') -%>
